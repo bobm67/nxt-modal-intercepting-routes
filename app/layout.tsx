@@ -19,9 +19,11 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({
-  children
+  children,
+  modal,
 }: Readonly<{
   children: React.ReactNode
+  modal: React.ReactNode
 }>) {
   return (
     <html
@@ -47,7 +49,10 @@ export default function RootLayout({
               <NextTopLoader showSpinner={false} color='#FF0000' height={5} />
               <div className='site'>
                 <Header />
-                <main className='grow'>{children}</main>
+                <main className='grow'>
+                  {modal}
+                  {children}
+                </main>
                 <Footer />
               </div>
             </Suspense>
